@@ -1,3 +1,4 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary")
 print("this is from remote!")
 
 def _foo_binary_impl(ctx):
@@ -14,3 +15,11 @@ foo_binary = rule(
     'username': attr.string(),
   },
 )
+
+def my_macro(name):
+    go_binary(
+        name = name,
+        srcs = ["main.go"],
+        deps = ["//package_demo/a_package:mymath"],
+    )   
+    
