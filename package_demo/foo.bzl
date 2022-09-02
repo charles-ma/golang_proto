@@ -20,6 +20,6 @@ def my_macro(name):
     go_binary(
         name = name,
         srcs = ["main.go"],
-        deps = ["//package_demo/a_package:mymath"],
+        deps = [Label("//package_demo/a_package:mymath")],
     )   
     
